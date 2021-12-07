@@ -1,0 +1,6 @@
+.lower-half-container{
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 80%;
+    padding: 0 1rem 0 1rem;
+    border-radius: 12px;
+}
