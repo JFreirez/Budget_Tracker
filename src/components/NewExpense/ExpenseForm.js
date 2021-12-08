@@ -39,7 +39,7 @@ const ExpenseForm = (props) => {
   };
 
   const submitHandler = (event) => {
-    //prevent the default requesting send, so the page won't reload.
+    //prevent the default http request send, so the page won't reload.
     event.preventDefault();
 
     const expenseData = {
@@ -47,8 +47,10 @@ const ExpenseForm = (props) => {
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
-
+    
+    //send back to NewExpense.js
     props.onSaveExpenseData(expenseData);
+
     //clearing the input after submitbutton
     setTitle("");
     setAmount("");
@@ -88,6 +90,7 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={props.onCancel}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>
     </form>

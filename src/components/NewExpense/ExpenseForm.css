@@ -25,3 +25,7 @@
 .new-expense__actions {
   text-align: right;
 }
+
+.new-expense__actions button{
+  margin: 0.5rem;
+}

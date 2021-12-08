@@ -1,7 +1,8 @@
 import { useState } from "react";
-import ExpenseItem from "./ExpenseItem";
 import ExpenseFilter from "../components/Filter/ExpenseFilter";
-import "./ExpensesDisplay.css";
+import ExpensesList from "./ExpensesList";
+import ExpensesChart from "./ExpensesChart";
+import "./ExpenseDisplay.css";
 
 function ExpenseDisplay(props) {
   const [filterYear, setFilteredYear] = useState("2021");
@@ -10,23 +11,11 @@ function ExpenseDisplay(props) {
     setFilteredYear(selectedYear);
   };
 
+  //.filter() creates a new array and wont delete the old one.
+  //the syntax to grab the year is important since we are comparing a string filter year
   const filteredExpenses = props.expensesList.filter((expense) => {
     return expense.date.getFullYear().toString() === filterYear;
   });
-
-  let expensesContent =  <p>No expenses found.</p>;
-  
-  if (filteredExpenses.length > 0){
-    expensesContent = filteredExpenses.length > 0 &&
-    filteredExpenses.map((expense) => (
-      <ExpenseItem
-        key={expense.id}
-        title={expense.title}
-        amount={expense.amount}
-        date={expense.date}
-      />
-    ))
-  }
 
   return (
     <div className="lower-half-container">
@@ -35,7 +24,8 @@ function ExpenseDisplay(props) {
           selected={filterYear}
           onChangeFilter={filterChangeHandler}
         />
-        {expensesContent}
+        <ExpensesChart expenses={filteredExpenses}/>
+        <ExpensesList items={filteredExpenses} />
       </div>
     </div>
   );
