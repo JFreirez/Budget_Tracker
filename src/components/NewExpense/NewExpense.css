@@ -18,8 +18,8 @@
   background-color: #40005d;
   color: white;
   border-radius: 12px;
-  margin-right: 1rem;
-  margin-top: 1rem;
+  /* margin-right: 1rem;
+  margin-top: 1rem; */
 }
 
 .new-expense button:hover,
@@ -38,3 +38,4 @@
 .new-expense button.alternative:hover{
     background-color: #ddb3f8;
 }
+
