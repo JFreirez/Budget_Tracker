@@ -1,3 +1,6 @@
+# Expenses Tracker 
+ Made by John Freirez using react javacript library to build components. This project is still in progress
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
